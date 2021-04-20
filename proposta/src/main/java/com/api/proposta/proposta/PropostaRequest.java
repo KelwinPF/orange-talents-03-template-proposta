@@ -38,6 +38,10 @@ public class PropostaRequest {
 	public Proposta convert() {
 		return new Proposta(documento, email, nome, endereco, salario);
 	}
+
+	public String getDocumento() {
+		return documento;
+	}
 	
 	
 }
