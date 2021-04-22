@@ -8,6 +8,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
 
 import com.api.proposta.configuracao.VerifyDocument;
+import com.api.proposta.util.StatusPropostaEnum;
 
 public class PropostaRequest {
 	
@@ -36,11 +37,27 @@ public class PropostaRequest {
 	}
 
 	public Proposta convert() {
-		return new Proposta(documento, email, nome, endereco, salario);
+		return new Proposta(documento, email, nome, endereco, salario,StatusPropostaEnum.NAO_ELEGIVEL);
 	}
 
 	public String getDocumento() {
 		return documento;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public String getEndereco() {
+		return endereco;
+	}
+
+	public BigDecimal getSalario() {
+		return salario;
 	}
 	
 	
