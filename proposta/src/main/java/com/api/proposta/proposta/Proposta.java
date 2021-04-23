@@ -1,6 +1,7 @@
 package com.api.proposta.proposta;
 
 import java.math.BigDecimal;
+import java.util.Optional;
 import java.util.UUID;
 
 import javax.persistence.Column;
@@ -48,6 +49,10 @@ public class Proposta {
 		this.endereco = endereco;
 		this.salario = salario;
 		this.status = status;
+	}
+	
+	public Optional<Cartao> getCartao() {
+		return Optional.ofNullable(cartao);
 	}
 
 	public Long getId() {
