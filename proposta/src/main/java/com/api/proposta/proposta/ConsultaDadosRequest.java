@@ -1,10 +1,5 @@
 package com.api.proposta.proposta;
 
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-
-import com.api.proposta.configuracao.VerifyDocument;
-
 public class ConsultaDadosRequest {
 	private String documento;
 	private String nome;

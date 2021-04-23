@@ -10,8 +10,10 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.api.proposta.cartao.Cartao;
 import com.api.proposta.util.StatusPropostaEnum;
 
 @Entity
@@ -32,6 +34,8 @@ public class Proposta {
 	private BigDecimal salario;
 	@Enumerated(EnumType.STRING)
 	private StatusPropostaEnum status;
+	@OneToOne
+	private Cartao cartao;
 	
 	public Proposta() {
 	}
@@ -78,6 +82,9 @@ public class Proposta {
 		this.status = eligibilidade;
 	}
 	
+	public void addCartao(Cartao cartao) {
+		this.cartao = cartao;
+	}
 	
 	
 	

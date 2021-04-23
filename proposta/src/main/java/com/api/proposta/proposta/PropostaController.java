@@ -19,14 +19,17 @@ import com.api.proposta.util.StatusPropostaEnum;
 @RestController
 @RequestMapping("/propostas")
 public class PropostaController {
+	
 	private PropostaRepository propostaRepository;
 	private ConsultaDados consultadados;
+	
 	public PropostaController(PropostaRepository proposta,ConsultaDados consultadados) {
 		this.propostaRepository = proposta;
 		this.consultadados = consultadados;
 	}
 	
 	@PostMapping
+	@Transactional
 	public ResponseEntity<?> cadastrar(@Valid @RequestBody PropostaRequest request,UriComponentsBuilder uriComponentsBuilder){
 
 		if(propostaRepository.existsByDocumento(request.getDocumento())) {
@@ -51,4 +54,5 @@ public class PropostaController {
 		}
 		return propostaRepository.save(proposta);
 	}
+
 }
