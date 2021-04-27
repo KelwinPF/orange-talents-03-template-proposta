@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-@FeignClient(name="ConsultaCartao",url="http://localhost:8888/")
+@FeignClient(name="ConsultaCartao",url="http://${consulta.cartao}/")
 public interface ConsultaCartao {
 	
 	@PostMapping(value = "/api/cartoes",consumes = "application/json")
