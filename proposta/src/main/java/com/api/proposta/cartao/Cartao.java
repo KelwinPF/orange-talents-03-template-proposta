@@ -2,13 +2,18 @@ package com.api.proposta.cartao;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.api.proposta.biometria.Biometria;
 
 @Entity
 @Table(name="cartoes")
@@ -21,6 +26,8 @@ public class Cartao {
 	private LocalDateTime emitidoEm;
 	private String titular;
 	private BigDecimal limite;
+	@OneToMany(mappedBy="cartao",cascade = CascadeType.ALL)
+	private List<Biometria> biometrias;
 	
 	@Deprecated
 	public Cartao() {
