@@ -15,15 +15,15 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
-        http.authorizeRequests()
-                .antMatchers(HttpMethod.POST, "/proposta").hasAnyAuthority("SCOPE_propostas:write")
-                .antMatchers(HttpMethod.GET, "/actuator/**").permitAll()
-                .and()
-                .csrf()
-                .and()
-                .cors().disable()
-                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-                .and()
-                .oauth2ResourceServer(OAuth2ResourceServerConfigurer::jwt);
+    	http.authorizeRequests()
+        .antMatchers(HttpMethod.POST, "/proposta").hasAnyAuthority("SCOPE_propostas:write")
+        .antMatchers(HttpMethod.GET, "/actuator/**").permitAll()
+        .and()
+        .csrf()
+        .and()
+        .cors().disable()
+        .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+        .and()
+        .oauth2ResourceServer(OAuth2ResourceServerConfigurer::jwt);
     }
 }

@@ -7,6 +7,8 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -14,6 +16,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.api.proposta.biometria.Biometria;
+import com.api.proposta.util.StatusCartaoEnum;
 
 @Entity
 @Table(name="cartoes")
@@ -28,6 +31,8 @@ public class Cartao {
 	private BigDecimal limite;
 	@OneToMany(mappedBy="cartao",cascade = CascadeType.ALL)
 	private List<Biometria> biometrias;
+	@Enumerated(EnumType.STRING)
+	private StatusCartaoEnum status = StatusCartaoEnum.ATIVO;
 	
 	@Deprecated
 	public Cartao() {
@@ -56,4 +61,14 @@ public class Cartao {
 	public BigDecimal getLimite() {
 		return limite;
 	}
+
+	public StatusCartaoEnum getStatus() {
+		return status;
+	}
+
+	public void bloquear(StatusCartaoEnum status) {
+		this.status = status;
+	}
+	
+	
 }
