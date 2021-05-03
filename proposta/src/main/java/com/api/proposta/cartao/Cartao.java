@@ -31,6 +31,7 @@ public class Cartao {
 	private BigDecimal limite;
 	@OneToMany(mappedBy="cartao",cascade = CascadeType.ALL)
 	private List<Biometria> biometrias;
+	
 	@Enumerated(EnumType.STRING)
 	private StatusCartaoEnum status = StatusCartaoEnum.ATIVO;
 	
